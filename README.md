@@ -1,0 +1,4 @@
+# Tetris
+
+## License
+MIT

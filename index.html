@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui"> -->
+    <link rel="stylesheet" href="./style/main.css" type="text/css">
+    <title>Tetris</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117992050-4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-117992050-4');
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="game-container"></div>
+      <div class="lose-container">
+        <div class="lose">
+          <p>You lose!</p>
+          <div class="btn replay-btn">Play again</div>
+        </div>
+      </div>
+      <div>
+        <canvas id="game" width="255" height="503" style="background-color:rgb(40,40,40);">
+        </canvas>
+        <div id="right">
+          <div class="data score-and-best">
+            <div class="best"></div>
+            <div class="score"></div>
+          </div>
+          <div class="data landing-interval">
+            Landing interval
+            <span class="interval-value"></span>
+          </div>
+          <div class="data next">
+            Next
+            <canvas id="next" width="150" style="background-color: rgb(40,40,40);"></canvas>
+          </div>
+          <div class="btn pause-or-resume-btn">Pause</div>
+          <div class="btn new-game-btn">New game</div>
+        </div>
+      </div>
+      <div class="bottom-area">
+        <div class="btn drop-btn">Drop (space bar)</div>
+        <div class="btn deform-btn">Deform (up arrow)</div>
+      </div>
+      <p>Developed by Li Enze.</p>
+    </div>
+
+    <script src="./js/vector.js"></script>  
+    <script src="./js/square.js"></script>
+    <script src="./js/block.js"></script>
+    <script src="./js/input_manager.js"></script>
+    <script src="./js/local_storage_manager.js"></script>
+    <script src="./js/ui_manager.js"></script>
+    <script src="./js/game.js"></script>
+    
+    <script>
+      (function(){
+        var cv = document.querySelector('canvas#game');
+        const nextCv = document.querySelector('canvas#next');
+        // var squareSide = 0.032*cv.width;
+        var squareSide = 20;
+        var cx = cv.getContext("2d");
+        // cx.translate(cv.width/2, cv.height/2);
+        var game = new Game(squareSide, cx, nextCv);
+      })(); 
+    </script>
+  </body>
+</html>
