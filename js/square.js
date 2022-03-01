@@ -26,14 +26,14 @@ Square.prototype.disappear = function() {
   cx.lineWidth = 0.125 * this.side + 1.5;
   this.makeClosedPath(cx, this.apex1, this.apex2, this.apex3, this.apex4);
   cx.stroke();
-}
+};
 
 Square.prototype.fall = function(distance) {
   this.disappear();
   this.topleft.y += distance;
   this.moveApexes();
   this.display();
-}
+};
 
 Square.prototype.moveApexes = function() {
   this.apex1.set(this.topleft.x, this.topleft.y);
@@ -51,8 +51,8 @@ Square.prototype.makeClosedPath = function() {
     cx.lineTo(arguments[i].x, arguments[i].y);
   }
   cx.closePath();
-}
+};
 
 Square.prototype.setTopleft = function(x, y) {
   this.topleft.set(x, y);
-}
+};

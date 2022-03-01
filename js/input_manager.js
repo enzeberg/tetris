@@ -10,7 +10,7 @@ InputManager.prototype.on = function(event, callback) {
     this.events[event] = [];
   }
   this.events[event].push(callback);
-}
+};
 
 InputManager.prototype.emit = function(event, data) {
   var callbacks = this.events[event];
@@ -19,7 +19,7 @@ InputManager.prototype.emit = function(event, data) {
       callback(data);
     });
   }
-}
+};
 
 InputManager.prototype.listenToButtons = function() {
   this.bindButtonPress('.drop-btn', this.drop);
@@ -28,7 +28,7 @@ InputManager.prototype.listenToButtons = function() {
 
   this.bindButtonPress('.replay-btn', this.replay);
   this.bindButtonPress('.new-game-btn', this.replay);
-}
+};
 
 InputManager.prototype.listenToKeyboard = function() {
   var self = this;
@@ -72,7 +72,7 @@ InputManager.prototype.listenToKeyboard = function() {
       }
     }
   });
-}
+};
 
 InputManager.prototype.listenToScreen = function() {
   var self = this;
@@ -107,17 +107,17 @@ InputManager.prototype.listenToScreen = function() {
       touchStartClientY = touchMoveClientY;
     }
   });
-}
+};
 
 InputManager.prototype.deform = function(event) {
   event.preventDefault();
   this.emit('deform'); 
-}
+};
 
 InputManager.prototype.drop = function(event) {
   event.preventDefault();
   this.emit('drop'); 
-}
+};
 
 InputManager.prototype.pauseOrContinue = function(event) {
   event.preventDefault();
@@ -126,15 +126,15 @@ InputManager.prototype.pauseOrContinue = function(event) {
   } else  {
     this.emit('continue');
   }
-}
+};
 
 InputManager.prototype.replay = function(event) {
   event.preventDefault();
   this.emit('replay');
-}
+};
 
 InputManager.prototype.bindButtonPress = function(selector, fn) {
   var button = document.querySelector(selector);
   button.addEventListener('click', fn.bind(this));
   button.addEventListener('touchend', fn.bind(this));
-}
+};

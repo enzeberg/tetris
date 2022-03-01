@@ -73,7 +73,7 @@ function Block(topleft, shape, squareSide, gap, cx) {
     self.squares[squareIndex] = new Square(squareTopleft, squareSide,
                                            color, cx);
   });
-};
+}
 
 //也可以根据block的width和height来“涂抹”block的区域，但为了简单，直接
 //调用square的disappear()。

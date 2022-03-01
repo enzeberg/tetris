@@ -27,7 +27,7 @@ Game.prototype.initialize = function() {
 
   this.addEvents();
   window.focus();
-}
+};
 
 Game.prototype.setup = function() {
   this.gameOver = false;
@@ -59,7 +59,7 @@ Game.prototype.addEvents = function() {
   this.inputManager.on('pause', this.pause.bind(this));
   this.inputManager.on('continue', this.continue.bind(this));
   this.inputManager.on('replay', this.replay.bind(this));
-}
+};
 
 Game.prototype.pause = function() {
   if (this.gameOver) return;
@@ -81,7 +81,7 @@ Game.prototype.replay = function() {
   this.uiManager.removeDialog();
   this.uiManager.clearContext(this.cx);
   this.setup();
-}
+};
 
 Game.prototype.prepareBlock = function() {
   this.fallingBlock = 
